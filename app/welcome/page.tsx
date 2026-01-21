@@ -5,16 +5,16 @@ export default async function Page() {
     'use server';
     const jar = await cookies();
 
-    jar.set('isLoggedIn', '1');
+    jar.delete('isLoggedIn');
   }
 
   return (
     <div className="m-8">
-      <p>There is no isLoggedIn cookie.</p>
+      <p>Welcome! There is a isLoggedIn cookie.</p>
 
       <form action={setCookie} className="mt-4">
         <button className="bg-gray-300 px-3 py-1.5 rounded" type="submit">
-          Set the cookie
+          Remove the cookie
         </button>
       </form>
     </div>

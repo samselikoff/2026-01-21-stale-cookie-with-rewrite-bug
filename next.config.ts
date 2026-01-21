@@ -1,7 +1,24 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // cacheComponents: true,
+
+  rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/',
+          has: [
+            {
+              type: 'cookie',
+              key: 'isLoggedIn',
+            },
+          ],
+          destination: '/welcome',
+        },
+      ],
+    };
+  },
 };
 
 export default nextConfig;
